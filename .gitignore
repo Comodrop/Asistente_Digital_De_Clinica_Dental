@@ -1,0 +1,38 @@
+# --- Archivos de Configuración y Credenciales ---
+# Ignora archivos de entorno y llaves secretas en cualquier nivel
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Credenciales de Google Cloud y llaves privadas
+credentials.json
+Backend/credentials.json
+*.json.key
+
+# --- Dependencias de Node.JS ---
+node_modules/
+Backend/node_modules/
+jspm_packages/
+web_modules/
+
+# --- Archivos de Compilación / Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# --- Archivos del Sistema Operativo y Editores ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
