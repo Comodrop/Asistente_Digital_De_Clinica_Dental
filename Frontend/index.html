@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente Dental - Clínica Sonrisas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="chat-container">
+    <header class="chat-header">
+      <div class="avatar">🦷</div>
+      <div>
+        <h2>Asistente Virtual</h2>
+        <p class="status">Clínica Dental Sonrisas • <span id="status-text">Listo</span></p>
+      </div>
+    </header>
+
+    <div class="chat-box" id="chat-box">
+      <div class="message bot-message">
+        Hola, soy la asistente virtual de la Clínica Dental Sonrisas. ¿En qué te puedo ayudar hoy?
+      </div>
+    </div>
+
+    <footer class="chat-footer">
+      <div class="controls-container">
+        <button id="start-btn" class="control-button start-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+          </svg>
+          <span>Hablar</span>
+        </button>
+
+        <button id="stop-btn" class="control-button stop-button" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+          </svg>
+          <span>Terminar</span>
+        </button>
+      </div>
+      <p class="mic-instruction" id="mic-instruction">Presiona "Hablar" para iniciar</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

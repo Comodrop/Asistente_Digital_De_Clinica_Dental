@@ -61,3 +61,11 @@ Paso 4: Compartir tu calendario de Google con la cuenta de servicio
 * Copia el ID del calendario (se encuentra más abajo en esa misma página de configuración; si es tu calendario principal, la ID suele ser tu correo personal o primary).
 * Actualiza tu archivo Backend/.env:
 * CALENDAR_ID=Aquí_tu_id_de_calendario@group.calendar.google.com 
+
+# Ejecutar el Servidor
+Para que la interfaz ejecute las instrucciones se debe de inicializar el servidor. En el cmd ubicarse en la ruta __Backend/server.js__ y ejecutar el comando:
+>node server.js
+
+Opcional podemos verificar que el Backend responde correctamente con este comando:
+>curl -X POST http://localhost:3000/api/chat -H "Content-Type: application/json" -d "{\"message\": \"¿Qué servicios ofrecen y cuáles son sus precios?\"}"
+

@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 420px;
+  height: 90vh;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  background: #0077b6;
+  color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  font-size: 28px;
+  background: #03045e;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.chat-header h2 {
+  font-size: 18px;
+}
+
+.status {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.chat-box {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #0077b6;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: #e9ecef;
+  color: #212529;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-footer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #e9ecef;
+}
+
+.controls-container {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+.control-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.start-button {
+  background-color: #0077b6;
+  box-shadow: 0 4px 10px rgba(0, 119, 182, 0.2);
+}
+
+.start-button:hover:not(:disabled) {
+  background-color: #023e8a;
+}
+
+.start-button.listening {
+  background-color: #2a9d8f;
+  animation: pulse 1.5s infinite;
+}
+
+.stop-button {
+  background-color: #e63946;
+  box-shadow: 0 4px 10px rgba(230, 57, 70, 0.2);
+}
+
+.stop-button:hover:not(:disabled) {
+  background-color: #d62828;
+}
+
+.control-button:disabled {
+  background-color: #ced4da;
+  color: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.mic-instruction {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #6c757d;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(42, 157, 143, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(42, 157, 143, 0); }
+}
