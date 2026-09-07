@@ -1,6 +1,6 @@
 # Asistente_Digital_De_Clinica_Dental
 Software diseñado para automatizar la atención a pacientes de Clínicas Dentales. Este asistente trabaja las 24 horas del día para garantizar una comunicación fluida y reducir la carga administrativa del personal.
-
+![AsistenteDigital](Visuales/InterfazDelAsistente.png)
 __¿Que puede hacer este proyecto?__ 
 * Brindar Información de la Clínica
 * Ofrecer Servicios y Precios
@@ -84,4 +84,5 @@ No es obligatorio pero se puede levantar un servidor de archivos estático liger
 * Abre ese enlace en el navegador. 
 
 > [!NOTE]
-> Algunos navegadores como Brave bloquean el microfono por defecto, se recomienda utilizar Google Chrome para pruebas rápidas.
+> * Algunos navegadores como Brave bloquean el microfono por defecto, se recomienda utilizar Google Chrome para pruebas rápidas.
+> * La Api gratuita de Gemini limita las peticiones, tienen una prioridad inferior en la cola de procesamiento.
