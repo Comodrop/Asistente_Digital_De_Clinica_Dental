@@ -1,6 +1,15 @@
 # Asistente_Digital_De_Clinica_Dental
 Software diseñado para automatizar la atención a pacientes de Clínicas Dentales. Este asistente trabaja las 24 horas del día para garantizar una comunicación fluida y reducir la carga administrativa del personal.
 
+__¿Que puede hacer este proyecto?__ 
+* Brindar Información de la Clínica
+* Ofrecer Servicios y Precios
+* Agendar Citas (Al correo personal seleccionado)
+* Cancelar Citas (En correo personal seleccionado)
+* Manejar de Situaciones Críticas (Dar una recomendación)
+
+Todos los datos brindados anteriormente pueden ser modificados según las necesidades.
+
 # Configurar dependencias e inicializar el servidor
 Abre la terminal en la raíz del proyecto, navega a la carpeta Backend y ejecuta los siguientes comandos para instalar los paquetes necesarios (@google/genai para Gemini, googleapis para Calendar, express, dotenv y cors):
 * cd Backend
@@ -43,7 +52,7 @@ Paso 3: Crear la Cuenta de Servicio (Service Account) y descargar credenciales
 * Haz clic en Agregar clave > Crear clave nueva > Selecciona JSON y descarga el archivo.
 * Renombra ese archivo descargado como "credentials.json" y muévelo dentro de tu carpeta Backend/.
 
-# Paso 4: Compartir tu calendario de Google con la cuenta de servicio
+Paso 4: Compartir tu calendario de Google con la cuenta de servicio
 * Abre el archivo "credentials.json" y copia la dirección que está en el campo "client_email" (tiene un formato parecido a calendar-bot@tu-proyecto.iam.gserviceaccount.com).
 * Ve a [Google Calendar](https://calendar.google.com/).
 * En la columna izquierda, busca el calendario que usarás (o usa tu calendario principal), pasa el cursor sobre él, haz clic en los 3 puntos y selecciona Configuración y privacidad.
