@@ -5,10 +5,13 @@ __¿Que puede hacer este proyecto?__
 * Brindar Información de la Clínica
 * Ofrecer Servicios y Precios
 * Agendar Citas (Al correo personal seleccionado)
-* Cancelar Citas (En correo personal seleccionado)
+* Cancelar Citas (En el correo personal seleccionado)
 * Manejar de Situaciones Críticas (Dar una recomendación)
 
 Todos los datos brindados anteriormente pueden ser modificados según las necesidades.
+
+> [!CAUTION]
+> La Api gratuita de Gemini utiliza las conversaciones para entrenar sus modelos, si se trabajará con información real se recomienda la versión de paga porque cuenta con protección de datos de nivel empresarial.
 
 # Configurar dependencias e inicializar el servidor
 Abre la terminal en la raíz del proyecto, navega a la carpeta Backend y ejecuta los siguientes comandos para instalar los paquetes necesarios (@google/genai para Gemini, googleapis para Calendar, express, dotenv y cors):
@@ -62,10 +65,23 @@ Paso 4: Compartir tu calendario de Google con la cuenta de servicio
 * Actualiza tu archivo Backend/.env:
 * CALENDAR_ID=Aquí_tu_id_de_calendario@group.calendar.google.com 
 
-# Ejecutar el Servidor
+# Ejecutar el Servidor del Backend
 Para que la interfaz ejecute las instrucciones se debe de inicializar el servidor. En el cmd ubicarse en la ruta __Backend/server.js__ y ejecutar el comando:
 >node server.js
 
 Opcional podemos verificar que el Backend responde correctamente con este comando:
 >curl -X POST http://localhost:3000/api/chat -H "Content-Type: application/json" -d "{\"message\": \"¿Qué servicios ofrecen y cuáles son sus precios?\"}"
 
+# Ejecutar el Servidor del Frontend
+No es obligatorio pero se puede levantar un servidor de archivos estático ligero usando __npx__
+
+* Abre una nueva terminal. 
+* Navega en la carpeta del proyecto y ubicarse en la ruta __/Fronted__
+* Ejecutar el sigiente comando para levantar un servidor web al instante:
+> npx serve .
+
+* Te mostrará una URL local normalmente http://localhost:3000 o http://localhost:5000 
+* Abre ese enlace en el navegador. 
+
+> [!NOTE]
+> Algunos navegadores como Brave bloquean el microfono por defecto, se recomienda utilizar Google Chrome para pruebas rápidas.
