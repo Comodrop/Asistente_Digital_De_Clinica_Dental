@@ -1,6 +1,6 @@
 # Asistente_Digital_De_Clinica_Dental
 Software diseñado para automatizar la atención a pacientes de Clínicas Dentales. Este asistente trabaja las 24 horas del día para garantizar una comunicación fluida y reducir la carga administrativa del personal.
-![AsistenteDigital](Visuales/InterfazDelAsistente.png)
+![AsistenteDigital](Imagenes/InterfazDelAsistente.png)
 __¿Que puede hacer este proyecto?__ 
 * Brindar Información de la Clínica
 * Ofrecer Servicios y Precios
