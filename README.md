@@ -1,5 +1,5 @@
 # Asistente_Digital_De_Clinica_Dental
-Software diseñado para automatizar la atención a pacientes de Clínicas Dentales. Este asistente trabaja las 24 horas del día para garantizar una comunicación fluida y reducir la carga administrativa del personal.
+Chat de voz diseñado para automatizar la atención a pacientes de Clínicas Dentales. Este asistente puede trabajar las 24 horas del día para garantizar una comunicación fluida y reducir la carga administrativa del personal.
 ![AsistenteDigital](Imagenes/InterfazDelAsistente.png)
 __¿Que puede hacer este proyecto?__ 
 * Brindar Información de la Clínica
@@ -8,7 +8,7 @@ __¿Que puede hacer este proyecto?__
 * Cancelar Citas (En el correo personal seleccionado)
 * Manejar de Situaciones Críticas (Dar una recomendación)
 
-Todos los datos brindados anteriormente pueden ser modificados según las necesidades.
+Todos los datos brindados anteriormente pueden ser modificados según las necesidades en la ruta __Backend/server.js__ linea 21 a la 53.
 
 > [!CAUTION]
 > La Api gratuita de Gemini utiliza las conversaciones para entrenar sus modelos, si se trabajará con información real se recomienda la versión de paga porque cuenta con protección de datos de nivel empresarial.
