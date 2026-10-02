@@ -99,6 +99,8 @@ La API de Gemini actúa como un servicio capaz de procesar interacción multimod
 * **Protocolo que usa:**
   * **WebSocket (Connect via WebSocket):** Utilizado por la Live API para mantener un canal bidireccional de baja latencia en transmisiones de audio, video y texto en tiempo real.
   * **HTTPS / REST:** Para peticiones estándar `POST` en formato `JSON` mediante `generateContent`.
+  
+![DescripcionApi](Imagenes/DescripcionApi.jpg)
 
 # Ejecutar el Servidor del Backend
 Para que la interfaz ejecute las instrucciones se debe de inicializar el servidor. En el cmd ubicarse en la ruta __Backend/server.js__ y ejecutar el comando:
