@@ -150,7 +150,7 @@ app.post('/api/chat', async (req, res) => {
     // Adaptar historial al formato esperado por el SDK
     const contents = [...history, { role: 'user', parts: [{ text: message }] }];
 
-    // Llamada con el SDK oficial @google/genai
+    // Llamada inicial con el SDK oficial @google/genai
     let response = await ai.models.generateContent({
       model: 'gemini-3.6-flash',
       contents: contents,
@@ -183,10 +183,13 @@ app.post('/api/chat', async (req, res) => {
         }
       }
 
-      // Enviar la respuesta de la función a Gemini
+      // 1. Guardar la llamada a la función hecha por Gemini en contents
       contents.push(response.candidates[0].content);
-      contents.push({ parts: functionResponses });
+      
+      // 2. Guardar la respuesta devuelta por el servidor a Gemini con el rol explícito 'user'
+      contents.push({ role: 'user', parts: functionResponses });
 
+      // 3. Volver a consultar a Gemini con los resultados
       response = await ai.models.generateContent({
         model: 'gemini-3.6-flash',
         contents: contents,
@@ -195,6 +198,11 @@ app.post('/api/chat', async (req, res) => {
           tools: calendarTools
         }
       });
+    }
+
+    // 4. Guardar la respuesta de texto final de Gemini en contents antes de devolver el historial
+    if (response.candidates && response.candidates[0]?.content) {
+      contents.push(response.candidates[0].content);
     }
 
     res.json({
