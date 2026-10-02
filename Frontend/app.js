@@ -9,6 +9,10 @@ const statusText = document.getElementById('status-text');
 let chatHistory = [];
 let isListening = false;
 let recognition = null;
+let silenceTimer = null;
+
+// Tiempo de silencio permitido en milisegundos (4 segundos)
+const SILENCE_TIMEOUT_MS = 4000; 
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -17,11 +21,12 @@ if (!SpeechRecognition) {
 } else {
   recognition = new SpeechRecognition();
   recognition.lang = 'es-GT';
-  recognition.interimResults = false;
+  
+  // Permite detectar el sonido y texto en tiempo real
+  recognition.interimResults = true; 
 
   // Evento Botón HABLAR
   startBtn.addEventListener('click', () => {
-    // Si la asistente está hablando, detener la voz para escuchar al usuario
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }
@@ -41,23 +46,54 @@ if (!SpeechRecognition) {
     stopBtn.disabled = false;
     micInstruction.textContent = 'Escuchando... Habla ahora';
     statusText.textContent = 'Escuchando';
+
+    // Iniciar el conteo regresivo si el usuario activa el micrófono pero no habla
+    resetSilenceTimer();
+  };
+
+  recognition.onresult = (event) => {
+    // Reiniciar el conteo de silencio cada vez que se detecte voz o sonido
+    resetSilenceTimer();
+
+    const lastResultIndex = event.results.length - 1;
+    const isFinal = event.results[lastResultIndex].isFinal;
+    const transcript = event.results[lastResultIndex][0].transcript.trim();
+
+    // Cuando el usuario termina la frase completa
+    if (isFinal && transcript.length > 0) {
+      clearTimeout(silenceTimer);
+      appendMessage(transcript, 'user-message');
+      sendToBackend(transcript);
+    }
   };
 
   recognition.onend = () => {
+    clearTimeout(silenceTimer);
     isListening = false;
     startBtn.classList.remove('listening');
     startBtn.disabled = false;
   };
 
-  recognition.onresult = async (event) => {
-    const userText = event.results[0][0].transcript;
-    appendMessage(userText, 'user-message');
-    await sendToBackend(userText);
+  recognition.onerror = (event) => {
+    console.warn('Error en el reconocimiento de voz:', event.error);
+    clearTimeout(silenceTimer);
   };
+}
+
+// Función para controlar la cuenta regresiva de ausencia de voz
+function resetSilenceTimer() {
+  clearTimeout(silenceTimer);
+  silenceTimer = setTimeout(() => {
+    if (isListening && recognition) {
+      console.log('Tiempo límite de silencio alcanzado. Deteniendo micrófono...');
+      recognition.stop();
+    }
+  }, SILENCE_TIMEOUT_MS);
 }
 
 // Detiene tanto el micrófono como la reproducción de voz
 function stopAllInteraction() {
+  clearTimeout(silenceTimer);
   if (recognition && isListening) {
     recognition.stop();
   }
